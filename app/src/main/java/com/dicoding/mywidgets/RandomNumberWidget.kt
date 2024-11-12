@@ -34,11 +34,8 @@ internal fun updateAppWidget(
     appWidgetManager: AppWidgetManager,
     appWidgetId: Int
 ) {
-    val widgetText = context.getString(R.string.appwidget_text)
-    // Construct the RemoteViews object
+    val lastUpdate = "Random: " + NumberGenerator.generate(100)
     val views = RemoteViews(context.packageName, R.layout.random_number_widget)
-    views.setTextViewText(R.id.appwidget_text, widgetText)
-
-    // Instruct the widget manager to update the widget
+    views.setTextViewText(R.id.appwidget_text, lastUpdate)
     appWidgetManager.updateAppWidget(appWidgetId, views)
 }
